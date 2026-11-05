@@ -2,6 +2,15 @@
 
 A compact, dark Windows desktop utility for local system monitoring and deliberate maintenance. Built with C# and .NET 10 Windows Forms. Native Windows APIs provide monitoring without WMI polling; built-in Windows tools handle privileged maintenance. No third-party runtime libraries, accounts, telemetry, services, scheduled tasks, tray process, or automatic startup.
 
+## Download the preview
+
+- [Windows installer](https://github.com/Hashad-ar/Windows-System-Monitor/raw/refs/heads/downloads-v1.0.0-preview.1/WindowsSystemMonitor-Setup.exe)
+- [Portable ZIP](https://github.com/Hashad-ar/Windows-System-Monitor/raw/refs/heads/downloads-v1.0.0-preview.1/WindowsSystemMonitor-Portable-win-x64.zip)
+- [Standalone executable](https://github.com/Hashad-ar/Windows-System-Monitor/raw/refs/heads/downloads-v1.0.0-preview.1/portable/WindowsSystemMonitor.exe)
+- [Checksums and package notes](https://github.com/Hashad-ar/Windows-System-Monitor/tree/downloads-v1.0.0-preview.1)
+
+These are unsigned preview packages. Windows runtime validation is still pending; see [the validation record](docs/validation-results.md). Packages are stored on a download branch because GitHub's release API was unavailable in the upload environment.
+
 ## Install and launch
 
 Requires 64-bit Windows 10 22H2 or Windows 11. Use a currently serviced Windows release; application compatibility does not extend the operating system's support lifecycle.
