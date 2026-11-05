@@ -1,0 +1,39 @@
+name: Windows build and package
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2025
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Ensure NSIS installer compiler
+        shell: pwsh
+        run: |
+          if (-not (Test-Path "${env:ProgramFiles(x86)}\NSIS\makensis.exe")) {
+            choco install nsis --yes --no-progress
+            if ($LASTEXITCODE -ne 0) { throw "NSIS installation failed: $LASTEXITCODE" }
+          }
+      - name: Build, test, publish, and package
+        shell: pwsh
+        run: ./scripts/build.ps1 -Installer
+      - name: Upload portable executable and installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: WindowsSystemMonitor-win-x64
+          path: |
+            dist/WindowsSystemMonitor-Portable-win-x64.zip
+            dist/WindowsSystemMonitor-Setup.exe
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 30

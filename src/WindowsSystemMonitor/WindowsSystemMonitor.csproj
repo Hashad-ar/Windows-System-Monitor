@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>../../assets/app.ico</ApplicationIcon>
+    <AssemblyName>WindowsSystemMonitor</AssemblyName>
+    <Version>1.0.0</Version>
+    <Company>Windows System Monitor</Company>
+    <Description>Local Windows monitoring and conservative maintenance</Description>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../WindowsSystemMonitor.Core/WindowsSystemMonitor.Core.csproj" /></ItemGroup>
+</Project>
